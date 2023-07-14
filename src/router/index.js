@@ -10,24 +10,24 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/men',
-      name: 'men',
-      component: () => import('../views/MenView.vue')
+      path: '/products',
+      name: 'products',
+      component: () => import('../views/ProductsView.vue')
     },
     {
-      path: '/women',
-      name: 'women',
-      component: () => import('../views/WomenView.vue')
+      path: '/services',
+      name: 'services',
+      component: () => import('../views/ServicesView.vue')
     },
     {
-      path: '/kids',
-      name: 'kids',
-      component: () => import('../views/KidsView.vue')
+      path: '/blog',
+      name: 'blog',
+      component: () => import('../views/BlogView.vue')
     },
     {
-      path: '/shop',
-      name: 'shop',
-      component: () => import('../views/ShopView.vue')
+      path: '/about',
+      name: 'about',
+      component: () => import('../views/AboutView.vue')
     },
     {
       path: '/contact',
@@ -40,9 +40,9 @@ const router = createRouter({
       component: () => import('../views/LikeView.vue')
     },
     {
-      path: '/cart',
-      name: 'cart',
-      component: () => import('../views/ShooppingCartView.vue')
+      path: '/notification',
+      name: 'notification',
+      component: () => import('../views/NotificationView.vue')
     },
     {
       path: '/profile',

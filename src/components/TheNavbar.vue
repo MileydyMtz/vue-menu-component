@@ -1,32 +1,26 @@
 <template>
-<nav>
-    <div class="navbar">
-
+<nav class="navbar">
+    <div class="navbar-container">
         <div class="home">
-            <router-link to="/"><img class="home-icon" src="@/assets/home.svg" alt="Home Icon" /></router-link>
-            <img class="menu-icon" @click="showMenu" src="@/assets/menu.svg" alt="Menu Icon" >
+            <router-link to="/">
+                <img class="home-icon icon" src="@/assets/home.svg" alt="Home Icon" />
+            </router-link>
+            <img class="menu-icon icon" @click="toggleMenu" src="@/assets/menu.svg" alt="Menu Icon">
         </div>
 
-        <section class="menu" :class="this.menu ? 'show-menu' : 'hide-menu'">
-            <img class="menu-close-icon" @click="hideMenu" src="@/assets/close.svg" alt="Close Icon">
-            <router-link to="/men" @click="hideMenu">Men</router-link>
-            <router-link to="/women" @click="hideMenu">Women</router-link>
-            <router-link to="/kids" @click="hideMenu">Kids</router-link>
-            <router-link to="/shop" @click="hideMenu">Shop</router-link>
-            <router-link to="/contact" @click="hideMenu">Contact Us</router-link>
+        <section class="menu" :class="{ 'show-menu': showMenu }">
+            <img class="menu-close-icon icon" @click="toggleMenu" src="@/assets/menu.svg" alt="Close Icon">
+            <template v-for="(navItem, index) in navigationItems" :key="index">
+                <router-link :to="navItem.route" @click="hideMenu">{{ navItem.label }}</router-link>
+            </template>
         </section>
 
-        <section class="icons">
-            <router-link to="/like">
-                <img src="@/assets/heart.svg" alt="Like Icon" />
-            </router-link>
-            <router-link to="/cart">
-                <img src="@/assets/shoppingCart.svg" alt=" Shopping cart icon" />
-            </router-link>
-            <router-link to="/profile" class="profile">
-                <img src="@/assets/profile.svg" alt="Profile Icon" />
-                <p> Nombre </p>
-            </router-link>
+        <section>
+                <template v-for="(navIcon, index) in navigationIcons" :key="index">
+                    <router-link :to="navIcon.route">
+                        <img class="icon" :src="navIcon.icon" :alt="navIcon.alt" />
+                    </router-link>
+                </template>
         </section>
     </div>
 </nav>
@@ -34,19 +28,29 @@
 
 <script>
 export default {
-    name: 'MenuComponent',
+    name: 'TheNavbar',
+    props: {
+        navigationItems: {
+            type: Array,
+            default: () => [],
+        },
+        navigationIcons: {
+            type: Array,
+            default: () => [],
+        },
+    },
     data() {
         return {
-            menu: false
+            showMenu: false,
         };
     },
     methods: {
-        showMenu: function () {
-            this.menu = true;
+        toggleMenu() {
+            this.showMenu = !this.showMenu;
         },
-        hideMenu: function () {
-            this.menu = false;
-        }
+        hideMenu() {
+            this.showMenu = false;
+        },
     },
 };
 </script>
@@ -58,7 +62,7 @@ $font-size: 1.2rem;
 
 %highlight-font {
     color: #002482;
-    font-weight: 600;
+    font-weight: 550;
     transform: scale(1.05);
 }
 
@@ -68,7 +72,7 @@ $font-size: 1.2rem;
     justify-content: center;
 }
 
-nav {
+.navbar {
     background-color: $background-nav;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     left: 0;
@@ -77,7 +81,7 @@ nav {
     width: 100%;
     z-index: 100;
 
-    .navbar {
+    .navbar-container {
         @extend %center-content;
         justify-content: space-between;
         padding: 20px;
@@ -97,8 +101,18 @@ nav {
         }
     }
 
-    .home-icon:hover {
-        transform: scale(1.10);
+    .icon {
+        width: 1.6rem;
+        transition: transform 0.2s ease;
+    }
+
+    .icon:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+    }
+
+    .home-icon {
+        width: 1.8rem;
     }
 }
 
@@ -112,28 +126,6 @@ nav {
 
     a:hover {
         @extend %highlight-font;
-    }
-}
-
-.icons {
-    @extend %center-content;
-
-    img {
-        width: 2rem;
-    }
-
-    img:hover {
-        transform: scale(1.10);
-    }
-
-    .profile {
-        @extend %center-content;
-
-        p {
-            color: $font-color;
-            font-size: $font-size;
-            margin-left: .5rem;
-        }
     }
 }
 
@@ -166,32 +158,15 @@ nav {
         }
     }
 
-    .hide-menu {
-        display: none;
-    }
-
     .menu-icon {
-        cursor: pointer;
         display: flex;
-        width: 1.5rem;
     }
 
     .menu-close-icon {
-        cursor: pointer;
         display: flex;
         position: absolute;
         right: 15%;
-        top: 8%;
-        width: 1.8rem;
-    }
-
-    .menu-icon:hover,
-    .menu-close-icon:hover {
-        transform: scale(1.10);
-    }
-
-    p {
-        display: none;
+        top: 8%;        
     }
 }
 </style>

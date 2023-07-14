@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p> women view</p>
+        <p>About view</p>
     </div>
 </template>

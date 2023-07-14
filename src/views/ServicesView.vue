@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p>Kids view</p>
+        <p> Services view</p>
     </div>
 </template>

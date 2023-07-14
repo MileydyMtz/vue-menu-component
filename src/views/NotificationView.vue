@@ -1,5 +1,5 @@
 <template>
     <div>
-        <p> Soppping Cart View</p>
+        <p> Notification View</p>
     </div>
 </template>
