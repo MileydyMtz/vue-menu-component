@@ -30,8 +30,8 @@ El componente Navbar tiene dos propiedades:
 * Se puede modificar la variable $background-nav para cambiar el color del fondo del navbar, asi como tambien se pueden cambiar las variables $font-color y $font-size para cambiar el color y tamaño de la letra del navbar respectivamente.
 * El componente utiliza media queries para adaptarse a diferentes tamaños de pantalla. Se muestra un menú de navegación desplegable cuando la pantalla es menor a 780px.
 * Se definen dos placeholders scss: 
-* * %highlight-font: Aumenta la escala del texto y lo colorea en azul oscuro cuando se activa un enlace.
-* * %center-content: Centra el contenido en un bloque, tanto horizontal como verticalmente.
+** %highlight-font: Aumenta la escala del texto y lo colorea en azul oscuro cuando se activa un enlace.
+** %center-content: Centra el contenido en un bloque, tanto horizontal como verticalmente.
 
 ## Uso del componente
 Para utilizar este componente, primero se debe descargar el archivo *TheNavbar.vue* que se encuentra dentro de *src/components* y agregarlo al proyecto donde se reutilizara. 
