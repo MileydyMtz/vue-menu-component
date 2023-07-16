@@ -40,7 +40,7 @@ Para utilizar este componente, primero se debe descargar el archivo *TheNavbar.v
 
 Posteriormente en el componente padre se importa el componente *TheNavbar* y mediante la etiqueta *Navbar* se pasa el array de objetos que contienen los datos de la navegación.
 
-A continuación un ejemplo:
+A continuación, un ejemplo:
 
 ```vue
 <template>
