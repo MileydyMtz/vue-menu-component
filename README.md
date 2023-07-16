@@ -1,18 +1,20 @@
-# Documentacion del componente Navbar
-## Descripcion:
+# Documentación del componente Navbar
+## Descripción:
 Este componente es una barra de navegación adaptable y reutilizable. Incluye menús, íconos de navegación y es responsivo para distintos tamaños de pantalla.
 
-## Tecnologias usadas
-A continuación se enlistan las tecnologías y librerías utilizadas en el desarrollo de este componente:
+## Tecnologías usadas
+A continuación, se enlistan las tecnologías y librerías utilizadas en el desarrollo de este componente:
 * Vue 3
 * Vue Router
 * Preprocesador SCSS
 * Vue Test Utils
 * Vitest
+* Prettier
+* ESLint
 
-## Caracteristicas del componente
+## Características del componente
 ### Props
-El componente Navbar tiene dos propiedades:
+El componente *Navbar* tiene dos propiedades:
 * **navigationItems**: Array de objetos donde cada objeto representa un elemento del menú de navegación. Cada objeto debe tener las propiedades *route* y *label*. La propiedad *route* es la ruta a la que se dirige el enlace, y *label* es el texto que se muestra para el enlace.
 * **navigationIcons**: Array de objetos donde cada objeto representa un ícono en la barra de navegación. Cada objeto debe tener las propiedades *route*, *icon* y *alt*. *route* es la ruta a la que el ícono enlaza, *icon* es la URL del ícono, y *alt* es el texto alternativo para el ícono.
 
@@ -25,9 +27,9 @@ El componente Navbar tiene dos propiedades:
 * Es importante asegurarse de que los íconos referenciados en las props navigationItems e icons existan en la ruta especificada o que sean URLs válidas.
  
 ### CSS
-* Los estilos están definidos en la seccion de <style> y usan la extencion .scss.
+* Los estilos están definidos en la sección de <style> y usan la extensión .scss.
 * Los estilos están "scoped", lo que significa que solo se aplicarán a este componente y no afectarán a otros componentes de la aplicación donde se reutilice.
-* Se puede modificar la variable $background-nav para cambiar el color del fondo del navbar, asi como tambien se pueden cambiar las variables $font-color y $font-size para cambiar el color y tamaño de la letra del navbar respectivamente.
+* Se puede modificar la variable *$background-nav* para cambiar el color del fondo del navbar, así como también se pueden cambiar las variables *$font-color* y *$font-size* para cambiar el color y tamaño de la letra del navbar respectivamente.
 * El componente utiliza media queries para adaptarse a diferentes tamaños de pantalla. Se muestra un menú de navegación desplegable cuando la pantalla es menor a 780px.
 * Se definen dos placeholders scss:
   - %highlight-font: Aumenta la escala del texto y lo colorea en azul oscuro cuando se activa un enlace.
@@ -38,7 +40,7 @@ Para utilizar este componente, primero se debe descargar el archivo *TheNavbar.v
 
 Posteriormente en el componente padre se importa el componente *TheNavbar* y mediante la etiqueta *Navbar* se pasa el array de objetos que contienen los datos de la navegación.
 
-A continuacion un ejemplo:
+A continuación un ejemplo:
 
 ```vue
 <template>
@@ -107,7 +109,7 @@ En *navigationIcons*: cada objeto tiene una propiedad icon que indica la ubicaci
 Estos datos se pasan al componente Navbar para que se puedan renderizar los enlaces de navegación y los íconos.
 
 
-## Demostracion
+## Demostración
 El ejemplo anterior se encuentra en el archivo *TheNavigation.vue*, donde se definen los ítems de navegación e íconos como datos en el componente padre, mismos que luego se pasan al componente *Navbar* a través de props.
 
 La implementación de este componente se puede ver de la siguiente forma:
@@ -117,12 +119,12 @@ La implementación de este componente se puede ver de la siguiente forma:
 ![NavbarMenu](https://github.com/MileydyMtz/vue-navbar-component/assets/85470047/53b54a94-30f2-4f13-9dbb-1db175a6e6b9)
 
 
-**Barra de navegacion desde la vista Mobile**
+**Barra de navegación desde la vista Mobile**
 
 ![NavbarMenu Mobile](https://github.com/MileydyMtz/vue-navbar-component/assets/85470047/de26ada5-aeb2-4e83-90b0-d057d570fd3d)
 
 
-**Visualizacion del menu abierto**
+**Visualización del menú abierto**
 
 ![NavbarMenu Mobile Open](https://github.com/MileydyMtz/vue-navbar-component/assets/85470047/d6277f64-61aa-4f11-b09a-faa8ce97badc)
 
@@ -130,7 +132,7 @@ La implementación de este componente se puede ver de la siguiente forma:
 ## Pruebas
 Las pruebas se han implementado utilizando la biblioteca vitest para correr las pruebas y @vue/test-utils para montar el componente. 
 
-A continuacion se muestran las pruebas implementadas:
+A continuación, se muestran las pruebas implementadas:
 * **mounts without crashing**: Esta prueba verifica si el componente Navbar se monta correctamente sin causar errores. 
 * **should hide the menu initially**: Se verifica que el menú esté oculto por defecto cuando el componente se carga por primera vez. 
 * **menu has correct class based on its state**: Esta prueba verifica que la clase del menú cambie correctamente cuando se hace clic en los iconos de abrir y cerrar menú. Esto se hace simulando clics en estos iconos y luego comprobando si la clase del menú ha cambiado como se esperaba.
