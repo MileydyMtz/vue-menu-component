@@ -108,7 +108,7 @@ Estos datos se pasan al componente Navbar para que se puedan renderizar los enla
 
 
 ## Demostracion
-El ejemplo anterior se encuentra en el archivo *TheNavigation*, donde se definen los ítems de navegación e íconos como datos en el componente padre, mismos que luego se pasan al componente *Navbar* a través de props.
+El ejemplo anterior se encuentra en el archivo *TheNavigation.vue*, donde se definen los ítems de navegación e íconos como datos en el componente padre, mismos que luego se pasan al componente *Navbar* a través de props.
 
 La implementación de este componente se puede ver de la siguiente forma:
 
