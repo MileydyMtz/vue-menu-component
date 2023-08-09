@@ -24,9 +24,9 @@ El componente *Navbar* tiene dos propiedades:
 
 ### Notas
 * Este componente requiere Vue Router para funcionar correctamente, ya que utiliza el componente router-link para la navegación.
-* Es importante asegurarse de que los íconos referenciados en las props navigationItems e icons existan en la ruta especificada o que sean URLs válidas.
+* Es importante asegurarse de que las propiedades *navigationItems* e *icons* existan en la ruta especificada.
  
-### CSS
+### Estilos
 * Los estilos están definidos en la sección de <style> y usan la extensión .scss.
 * Los estilos están "scoped", lo que significa que solo se aplicarán a este componente y no afectarán a otros componentes de la aplicación donde se reutilice.
 * Se puede modificar la variable *$background-nav* para cambiar el color del fondo del navbar, así como también se pueden cambiar las variables *$font-color* y *$font-size* para cambiar el color y tamaño de la letra del navbar respectivamente.
@@ -36,7 +36,7 @@ El componente *Navbar* tiene dos propiedades:
   - %center-content: Centra el contenido en un bloque, tanto horizontal como verticalmente.
 
 ## Uso del componente
-Para utilizar este componente, primero se debe descargar el archivo *TheNavbar.vue* que se encuentra dentro de *src/components* y agregarlo al proyecto donde se reutilizara. 
+Para utilizar este componente, primero se debe descargar el archivo *TheNavbar.vue* que se encuentra dentro de *src/components* y agregarlo al proyecto donde se reutilizara.
 
 Posteriormente en el componente padre se importa el componente *TheNavbar* y mediante la etiqueta *Navbar* se pasa el array de objetos que contienen los datos de la navegación.
 
@@ -45,7 +45,10 @@ A continuación, un ejemplo:
 ```vue
 <template>
     <div>
-        <Navbar :navigationItems="navigationItems" :navigationIcons="navigationIcons" />
+        <Navbar 
+            :navigationItems="navigationItems" 
+            :navigationIcons="navigationIcons" 
+        />
     </div>
 </template>
 
@@ -56,9 +59,11 @@ export default {
     components: {
         Navbar,
     },
+    
     data() {
         return {
-            navigationItems: [{
+            navigationItems: [
+                {
                     route: '/products',
                     label: 'Products'
                 },
@@ -79,7 +84,9 @@ export default {
                     label: 'Contact Us'
                 },
             ],
-            navigationIcons: [{
+
+            navigationIcons: [
+                {
                     icon: 'src/assets/like.svg',
                     alt: "Like Icon",
                     route: "/like"
@@ -102,9 +109,9 @@ export default {
 
 ```
 
-En *navigationItems*: cada objeto tiene una propiedad route que indica a dónde debe redirigir el enlace, y una propiedad label que indica el texto que se mostrará para el enlace
+En *navigationItems*: cada objeto tiene una propiedad *route* que indica a dónde debe redirigir el enlace, y una propiedad *label* que indica el texto que se mostrará para el enlace
 
-En *navigationIcons*: cada objeto tiene una propiedad icon que indica la ubicación del archivo de imagen del ícono, una propiedad alt que proporciona texto alternativo para el ícono, y una propiedad route que indica a dónde debe redirigir el ícono.
+En *navigationIcons*: cada objeto tiene una propiedad *icon* que indica la ubicación del archivo de imagen del ícono, una propiedad *alt* que proporciona texto alternativo para el ícono, y una propiedad *route* que indica a dónde debe redirigir el ícono.
 
 Estos datos se pasan al componente Navbar para que se puedan renderizar los enlaces de navegación y los íconos.
 
@@ -130,7 +137,7 @@ La implementación de este componente se puede ver de la siguiente forma:
 
 
 ## Pruebas
-Las pruebas se han implementado utilizando la biblioteca vitest para correr las pruebas y @vue/test-utils para montar el componente. 
+Se utiliza la biblioteca Vitest para correr las pruebas y @vue/test-utils para montar el componente. 
 
 A continuación, se muestran las pruebas implementadas:
 * **mounts without crashing**: Esta prueba verifica si el componente Navbar se monta correctamente sin causar errores. 
