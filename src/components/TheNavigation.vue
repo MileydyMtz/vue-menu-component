@@ -1,6 +1,9 @@
 <template>
     <div>
-        <Navbar :navigationItems="navigationItems" :navigationIcons="navigationIcons" />
+        <Navbar 
+            :navigationItems="navigationItems" 
+            :navigationIcons="navigationIcons" 
+        />
     </div>
 </template>
 
@@ -11,9 +14,11 @@ export default {
     components: {
         Navbar,
     },
+    
     data() {
         return {
-            navigationItems: [{
+            navigationItems: [
+                {
                     route: '/products',
                     label: 'Products'
                 },
@@ -34,7 +39,9 @@ export default {
                     label: 'Contact Us'
                 },
             ],
-            navigationIcons: [{
+
+            navigationIcons: [
+                {
                     icon: 'src/assets/like.svg',
                     alt: "Like Icon",
                     route: "/like"
